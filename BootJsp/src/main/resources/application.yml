@@ -1,0 +1,7 @@
+spring:
+  application:
+    name: BootJsp
+  mvc:
+    view:
+      prefix: /WEB-INF/page/
+      suffix: .jsp

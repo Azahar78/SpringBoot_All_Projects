@@ -1,0 +1,5 @@
+spring:
+  application:
+    name: SpringCloudAdminServer
+server:
+  port: 9999

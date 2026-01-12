@@ -1,0 +1,6 @@
+spring:
+  application:
+    name: BootRest
+
+server:
+  port: 8081

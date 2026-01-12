@@ -1,0 +1,32 @@
+package com.rest;
+
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestHeader;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.RestController;
+
+import com.rest.entity.Product;
+
+@RestController
+@RequestMapping("/pathreq")
+public class PathAndRequstParamController {
+
+	@GetMapping("/request")
+	public ResponseEntity<?> requestParam(@RequestParam Integer id, @RequestParam String name,@RequestHeader String auth){
+		 
+		System.out.println(auth!=null?" header present"+auth:" not header present ");
+		if(auth.isEmpty())
+		 return ResponseEntity.ok(" Your Id :"+id+" Username : "+name);
+		
+		return ResponseEntity.internalServerError().body("no Data");
+	}
+	
+	@GetMapping("/path/{id}/{name}")
+	public ResponseEntity<?> pathVariable(@PathVariable Integer id,@PathVariable String name){
+		
+		return ResponseEntity.ok(" Your Id :"+id+" Username : "+name);
+	}
+}
